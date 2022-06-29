@@ -1,0 +1,44 @@
+.contactsBlock{
+    height: 100vh;
+    border: 1px solid;
+    background-color: thistle;
+}
+.title{
+    background-color: silver;
+    margin-bottom: 60px;
+}
+.form{
+    border: 1px solid;
+    width: 500px;
+    text-align: center;
+}
+.nameLabel{
+
+}
+
+.input{
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.nameInput{
+
+}
+
+.telLabel{
+
+}
+.telInput{
+
+}
+.textLabel{
+
+}
+.textArea{
+    min-height: 100px;
+    margin-bottom: 30px;
+}
+
+.btn{
+    padding: 5px 10px;
+}

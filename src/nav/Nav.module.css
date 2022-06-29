@@ -1,0 +1,13 @@
+.nav {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    margin-left: auto;
+    min-height: 78px;
+    align-items: center;
+}
+.link{
+    line-height: 1.2;
+
+}

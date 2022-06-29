@@ -1,0 +1,29 @@
+.skill{
+    width: 200px;
+    min-height: 150px;
+    padding: 10px;
+    padding-bottom: 0;
+    display: flex;
+    background-color: lemonchiffon;
+    flex-direction: column;
+    align-items: center;
+}
+.icon{
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.title{
+
+
+}
+
+.descr{
+    border: 1px solid;
+    text-align: center;
+    max-width: 200px;
+    padding-bottom: 50px;
+}
