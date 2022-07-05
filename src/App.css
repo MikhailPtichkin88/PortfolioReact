@@ -1,15 +1,5 @@
-html{
-    box-sizing: border-box;
-}
-
-*,
-*::after,
-*::before{
-    box-sizing: inherit;
-}
-
-ul,
-ol,
-button {
-    padding: 0;
+.container{
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 10px;
 }

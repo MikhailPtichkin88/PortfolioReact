@@ -1,0 +1,44 @@
+.wrapper{
+  margin-top: 36px;
+  min-height: 650px;
+}
+.inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+.name{
+  width: 200px;
+  font-weight: 700;
+  font-size: 47px;
+  line-height: 58px;
+  color:#070707;
+}
+
+.pdfLink{
+  display: block;
+  padding-top: 10px;
+}
+
+.info{
+  width: 200px;
+  font-size: 20px;
+  line-height: 26px;
+  margin-bottom: 10px;
+  span{
+    display: block;
+    font-weight: bold;
+  }
+}
+.photoContainer{
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
+.photo{
+
+  transform: translateY(-30px);
+  object-fit: cover;
+
+}

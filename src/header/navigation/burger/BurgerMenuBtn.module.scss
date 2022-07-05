@@ -1,0 +1,26 @@
+.btn{
+  display: none;
+  background-color: transparent;
+  border: none;
+}
+.line{
+  display: block;
+  width: 33px;
+  height: 4px;
+  background-color: #000;
+  transition: all .4s;
+  & + .line{
+    margin-top: 4px;
+  }
+  &_active + .line:first-child{
+    background-color: #828282;
+    transform: translateY(8px) rotate(135deg);
+  }
+  &_active .line:nth-child(2){
+    opacity: 0;
+  }
+  &_active .line:last-child{
+    background-color: #828282;
+    transform: translateY(-8px) rotate(-135deg);
+  }
+}

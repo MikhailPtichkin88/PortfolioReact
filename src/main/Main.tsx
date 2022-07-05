@@ -1,22 +1,15 @@
 import React from 'react';
-import styleContainer from '../common/styles/Container.module.css'
 import styles from './Main.module.css'
+import About from "./about/About";
+import Experience from "./experience/Experience";
 
 const Main = () => {
 
     return (
-        <section className={styles.mainBlock}>
-            <div className={styleContainer.containerLine}>
-                <div className={styles.text}>
-                    <span>Привет!</span>
-                    <h1>Меня зовут Птичкин Михаил</h1>
-                    <span>Я front-end разработчик</span>
-                </div>
-
-                <div className={styles.photo}></div>
-            </div>
-
-        </section>
+   <main>
+       <About/>
+       <Experience/>
+   </main>
     );
 };
 

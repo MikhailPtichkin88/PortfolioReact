@@ -1,0 +1,22 @@
+.lang {
+  transform: rotate(-90deg);
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #828282;
+
+  &_active {
+    color: #070707;
+  }
+}
+
+.remove{
+  display: none;
+}
+

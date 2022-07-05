@@ -1,13 +1,14 @@
 import React from 'react';
-import styles from './Header.module.css'
-import Nav from "../nav/Nav";
-import styleContainer from "../common/styles/Container.module.css";
+import styles from './Header.module.scss'
+import Nav from "./navigation/Nav";
+
+
 
 const Header = () => {
     return (
         <header className={styles.header}>
-            <div className={styleContainer.containerLine}>
-                <Nav/>
+            <div className="container">
+               <Nav/>
             </div>
         </header>
     );
