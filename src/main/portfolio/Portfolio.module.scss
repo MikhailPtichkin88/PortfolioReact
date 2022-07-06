@@ -6,11 +6,12 @@
 .title{
   margin-bottom: 50px;
  }
-.wrapper{
-  display: grid;
-  grid-template-columns: repeat(4, 280px);
-  grid-template-rows: repeat(2, 280px);
-  grid-auto-rows: 280px;
-  gap: 5px;
-  justify-content: center;
+.masonry{
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.masonryCols{
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
 }
