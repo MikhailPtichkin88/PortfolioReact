@@ -1,0 +1,52 @@
+.slide{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 80%;
+  min-height: 150px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(97, 97, 97, 0.18), 0px 4px 8px rgba(97, 97, 97, 0.18);
+  border-radius: 12px;
+}
+
+.img{
+  width: calc(30% - 15px);
+  padding-right: 5px;
+  margin-right: 10px;
+  align-self: normal;
+}
+.courses{
+  background-position: left top,center bottom, 80% top ;
+  background-size: 75px, 70px, 70px ;
+  background-repeat: no-repeat;
+}
+.lotte{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text{
+  width: 70%;
+text-align:left;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.textCourses{
+  line-height: initial;
+}
+.list{
+  padding-left: 40px;
+  font-weight: 400;
+  list-style: initial;
+  padding-top:  10px;
+}
+.item{
+  text-align: left;
+  &:not(:last-child){
+    margin-bottom: 5px;
+  }
+}
+.bold{
+  color: #000;
+}
