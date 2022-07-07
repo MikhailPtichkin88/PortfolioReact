@@ -9,6 +9,9 @@ import react from '../../common/images/skills/react.svg';
 import git from '../../common/images/skills/git.svg';
 import gulp from '../../common/images/skills/gulp(1).svg';
 import figma from '../../common/images/skills/figma.svg';
+import redux from '../../common/images/skills/redux.svg'
+import jquery from '../../common/images/skills/jquery.svg'
+
 
 
 const Skills = () => {
@@ -23,8 +26,10 @@ const Skills = () => {
                   <Skill title='JavaScript' img={js}/>
                   <Skill title='TypeScript' img={ts}/>
                   <Skill title='React' img={react}/>
+                  <Skill title='Redux' img={redux}/>
                   <Skill title='Git' img={git}/>
                   <Skill title='Gulp' img={gulp}/>
+                  <Skill title='JQuery' img={jquery} place='2'/>
                   <Skill title='Figma' img={figma}/>
                 </div>
             </div>
