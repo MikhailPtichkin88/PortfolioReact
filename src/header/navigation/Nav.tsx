@@ -1,41 +1,54 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Nav.module.scss';
 import BurgerMenuBtn from "./burger/BurgerMenuBtn";
-import LanguageChange from "./language/LanguageChange";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import {SocialItem} from "../../common/components/socialItem/SocialItem";
+import sprite from "../../common/images/footer/footerSprite.svg";
 
 const Nav = () => {
+    const [isOpen, setIsOpen] = useState(false)
+
+    const toggleBurgerMenuHandler = (isOpen:boolean) => setIsOpen(isOpen)
+    const onClickLinkHandler = () => setIsOpen(false)
+    const active = isOpen ? ` ${styles.active}` : ""
+
     return (
         <nav className={styles.menu}>
-            <BurgerMenuBtn/>
-            <ul className={styles.navList}>
+            <BurgerMenuBtn isOpen={isOpen} setIsOpen={toggleBurgerMenuHandler}/>
+            <ul className={styles.navList+active}>
                 <li className={styles.navItem}>
-                    <AnchorLink href="#about" className={styles.navLink+ ' '+styles.active} offset='100'>
+                    <AnchorLink onClick={onClickLinkHandler} href="#about"
+                                className={styles.navLink + ' ' + styles.active} offset='100'>
                         Обо мне
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink href="#experience" className={styles.navLink}>
+                    <AnchorLink onClick={onClickLinkHandler} href="#experience" className={styles.navLink}>
                         Опыт
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink href="#skills" className={styles.navLink}>
+                    <AnchorLink onClick={onClickLinkHandler} href="#skills" className={styles.navLink}>
                         Навыки
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink href="#portfolio" className={styles.navLink} offset='-25'>
+                    <AnchorLink onClick={onClickLinkHandler} href="#portfolio" className={styles.navLink} offset='-25'>
                         Портфолио
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink href="#hire" className={styles.navLink} offset='-50'>
+                    <AnchorLink onClick={onClickLinkHandler} href="#hire" className={styles.navLink} offset='-50'>
                         Контакты
                     </AnchorLink>
                 </li>
             </ul>
-          <LanguageChange active={false}/>
+            <ul className={styles.socialAside+active}>
+                <SocialItem itemClass={styles.socialItem} link={'https://github.com/MikhailPtichkin88'} svgClass={styles.svg} svgPic={`${sprite}#github`}/>
+                <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5'} svgClass={styles.svg} svgPic={`${sprite}#telegram`}/>
+                <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5styles.svg'} svgClass={styles.svg} svgPic={`${sprite}#whatsapp`}/>
+                <SocialItem itemClass={styles.socialItem} link={'https://www.linkedin.com/in/milkhail-ptichkin/'} svgClass={styles.svg} svgPic={`${sprite}#linkedin`}/>
+            </ul>
         </nav>
     );
 };

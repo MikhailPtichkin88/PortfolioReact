@@ -62,12 +62,20 @@
 .svg{
     width: 40px;
     height: 40px;
-    &:hover{
-        path{
-            fill: #000;
+}
+
+@media(max-width: 576px){
+    .footerBlock{
+        padding: 30px 0;
+    }
+    .wrapper{
+        flex-direction: column;
+        gap: 30px;
+    }
+    .container{
+        &::before{
+            top: -30px;
         }
     }
 }
-
-
 

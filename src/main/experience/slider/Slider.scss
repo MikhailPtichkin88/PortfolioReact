@@ -254,3 +254,22 @@
   color: #fff; }
 .carousel:hover .slide .legend {
   opacity: 1; }
+
+
+@media(max-width:991px){
+  .control-arrow{
+    display: none !important;
+  }
+  .carousel .slider-wrapper {
+    padding: 30px 10px;
+  }
+  .carousel .control-dots {
+    bottom: 0;
+  }
+}
+
+@media(max-width:991px) {
+  .carousel .slider-wrapper {
+    padding: 10px 2px;
+  }
+}

@@ -28,7 +28,7 @@
 }
 .text{
   width: 70%;
-text-align:left;
+  text-align:left;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -49,4 +49,53 @@ text-align:left;
 }
 .bold{
   color: #000;
+}
+
+@media(max-width:991px){
+  .slide{
+    width: 95%;
+  }
+  .slide{
+    justify-content: space-between;
+  }
+.img{
+  width: 160px;
+}
+  .courses{
+    background-position: 20px 10px,30px 80px, 90% center ;
+  }
+}
+
+@media(max-width:768px){
+  .img{
+    width: 100px;
+    margin-right: 0;
+  }
+  .courses{
+    background-position: 40px top,40px center, 40px bottom ;
+  }
+}
+
+@media(max-width:576px){
+  .slide{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .img{
+    width: 180px;
+    height: 50px;
+    margin: 0 auto;
+  }
+  .courses{
+    background-position: left bottom,center 7px, right bottom ;
+  }
+  .lotte{
+    height: 120px;
+  }
+  .text{
+    width: 90%;
+    text-align:left;
+    font-weight: 500;
+    line-height: 1.4;
+  }
 }

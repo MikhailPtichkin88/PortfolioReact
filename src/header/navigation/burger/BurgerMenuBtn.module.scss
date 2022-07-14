@@ -12,15 +12,27 @@
   & + .line{
     margin-top: 4px;
   }
-  &_active + .line:first-child{
+  &.active:first-child{
     background-color: #828282;
     transform: translateY(8px) rotate(135deg);
   }
-  &_active .line:nth-child(2){
+  &.active:nth-child(2){
     opacity: 0;
   }
-  &_active .line:last-child{
+  &.active:last-child{
     background-color: #828282;
     transform: translateY(-8px) rotate(-135deg);
   }
+}
+
+@media (max-width: 576px) {
+  .btn{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 68px;
+    z-index: 15;
+  }
+
+
 }

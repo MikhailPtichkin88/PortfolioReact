@@ -3,3 +3,9 @@
   background: radial-gradient(45% 25% at 50% 65%, rgba(26, 21, 21, 0) 10%, rgba(1, 1, 1, 0.05) 100%), #FFFFFF;
   mix-blend-mode: normal;
 }
+
+@media(max-width:768px){
+  .section{
+    padding: 30px 0 50px;
+  }
+}

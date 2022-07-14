@@ -39,8 +39,38 @@
   overflow: hidden;
 }
 .photo{
-
   transform: translateY(-30px);
   object-fit: cover;
+}
 
+@media (max-width: 576px) {
+
+.wrapper{
+  padding-top: 0;
+}
+  .inner{
+    padding-top: 15px;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+  .name{
+    width: 350px;
+    font-size: 38px;
+    text-align: left;
+    margin-bottom: 20px;
+    align-self: flex-start;
+  }
+  .info{
+    align-self: flex-start;
+    text-align: left;
+    width: 225px;
+  }
+  .photo{
+    transform: translateY(0px);
+  }
+}
+@media (max-width: 400px) {
+  .name {
+    width: 285px;
+  }
 }

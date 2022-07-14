@@ -16,7 +16,14 @@
   }
 }
 
-.remove{
+.remove {
   display: none;
 }
 
+@media (max-width: 576px) {
+  .lang {
+    transform: rotate(0deg);
+    align-self: flex-end;
+    left: -15px;
+  }
+}

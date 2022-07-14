@@ -1,14 +1,14 @@
-
-
-.navList{
+.navList {
   display: flex;
   justify-content: space-between;
   position: relative;
   padding-bottom: 32px;
-  &.navList_active{
+
+  &.navList_active {
     transform: translateX(0);
   }
-  &::after{
+
+  &::after {
     position: absolute;
     content: '';
     bottom: 0;
@@ -20,16 +20,17 @@
   }
 }
 
-.navLink{
+.navLink {
   position: relative;
   font-weight: 700;
   font-size: 18px;
   color: #828282;
   transition: color 0.3s linear;
-  &::after{
+
+  &::after {
     position: absolute;
     content: '';
-    top:53px;
+    top: 53px;
     left: 0;
     width: 0;
     height: 1px;
@@ -42,24 +43,104 @@
     transition: width 0.3s linear;
     z-index: 2;
   }
-  &:hover{
+
+  &:hover {
     color: #070707;
+
     &::after {
       width: 100%;
     }
   }
-
-
 }
 
-.langAdaptive {
-  transform: rotate(90deg);
-  position: absolute;
-  bottom: 100px;
-  right: 0;
-  font-size: 34px;
+.socialAside {
+  display: none;
 }
 
-.active{
-  color: #070707;
+@media (max-width: 576px) {
+  .navList {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #fff;
+    z-index: 10;
+    padding-top: 66px;
+    padding-left: 26px;
+    transition: all .5s;
+    transform: translateX(-100%);
+
+    &::after {
+      display: none;
+    }
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+  .navItem {
+    margin-bottom: 50px;
+  }
+  .navLink {
+    font-weight: 700;
+    font-size: 34px;
+  }
+  .socialAside {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 85%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    z-index: 11;
+    transition: all .5s;
+    transform: translateX(100%);
+
+    &.active {
+      transform: translate(0);
+    }
+  }
+  .socialItem{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    box-shadow: 0 2px 4px rgb(97 97 97 / 18%), 0px 4px 8px rgb(97 97 97 / 18%);
+    -webkit-transition: box-shadow 0.3s ease;
+    -moz-transition: box-shadow 0.3s ease;
+    -ms-transition: box-shadow 0.3s ease;
+    -o-transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease;
+
+    &:active {
+      box-shadow: 1px 1px 1px rgba(97, 97, 97, 0.7), 1px 2px 2px rgba(97, 97, 97, 0.7);
+    }
+  }
+  .svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media(max-height: 500px){
+  .navList {
+    padding-top: 30px;
+    overflow: auto;
+  }
+  .navItem {
+    margin-bottom: 30px;
+  }
+  .navLink {
+    font-weight: 700;
+    font-size: 28px;
+  }
+  .socialAside {
+    flex-direction: column;
+    left:80%;
+    top: initial;
+    bottom: 10px;
+  }
 }
