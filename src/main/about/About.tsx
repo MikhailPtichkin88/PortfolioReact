@@ -7,7 +7,7 @@ import LanguageChange from "../../header/navigation/language/LanguageChange";
 
 const About = () => {
     return (
-        <section>
+        <section id='about'>
             <div className={styles.wrapper}>
                 <div className="container">
                     <div className={styles.inner}>

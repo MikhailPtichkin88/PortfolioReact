@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Nav.module.scss';
 import BurgerMenuBtn from "./burger/BurgerMenuBtn";
 import LanguageChange from "./language/LanguageChange";
-
+import AnchorLink from 'react-anchor-link-smooth-scroll'
 
 const Nav = () => {
     return (
@@ -10,29 +10,29 @@ const Nav = () => {
             <BurgerMenuBtn/>
             <ul className={styles.navList}>
                 <li className={styles.navItem}>
-                    <a href="#" className={styles.navLink}>
+                    <AnchorLink href="#about" className={styles.navLink+ ' '+styles.active} offset='100'>
                         Обо мне
-                    </a>
+                    </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="#" className={styles.navLink}>
+                    <AnchorLink href="#experience" className={styles.navLink}>
                         Опыт
-                    </a>
+                    </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="#" className={styles.navLink}>
+                    <AnchorLink href="#skills" className={styles.navLink}>
                         Навыки
-                    </a>
+                    </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="#" className={styles.navLink}>
+                    <AnchorLink href="#portfolio" className={styles.navLink} offset='-25'>
                         Портфолио
-                    </a>
+                    </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <a href="#" className={styles.navLink}>
+                    <AnchorLink href="#hire" className={styles.navLink} offset='-50'>
                         Контакты
-                    </a>
+                    </AnchorLink>
                 </li>
             </ul>
           <LanguageChange active={false}/>

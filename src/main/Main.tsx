@@ -4,6 +4,7 @@ import About from "./about/About";
 import Experience from "./experience/Experience";
 import Skills from "./skills/Skills";
 import Portfolio from "./portfolio/Portfolio";
+import HireMe from "./hireMe/HireMe";
 
 const Main = () => {
 
@@ -13,6 +14,7 @@ const Main = () => {
        <Experience/>
        <Skills/>
        <Portfolio/>
+       <HireMe/>
    </main>
     );
 };

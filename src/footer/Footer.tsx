@@ -1,46 +1,25 @@
 import React from 'react';
-import styleContainer from '../common/styles/Container.module.css';
-import styles from './Footer.module.css'
-import sprite from '../common/images/sprite.svg'
+import styles from './Footer.module.scss'
+import sprite from '../common/images/footer/footerSprite.svg'
+import {SocialItem} from "../common/components/socialItem/SocialItem";
 
 
 const Footer = () => {
     return (
         <footer className={styles.footerBlock}>
-            <div className={styleContainer.containerColumn+' '+styles.container}>
-                <h2 className={styles.title}>Птичкин Михаил</h2>
-
-                <ul className={styles.social}>
-                    <li className={styles.socialItem}>
-                        <a className={styles.socialLink} href="#">
-                            <svg className={styles.socialImg}>
-                                <use xlinkHref={`${sprite}#facebook`}></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li className={styles.socialItem}>
-                        <a className={styles.socialLink} href="#">
-                            <svg className={styles.socialImg}>
-                                <use xlinkHref={`${sprite}#instagram`}></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li className={styles.socialItem}>
-                        <a className={styles.socialLink} href="#">
-                            <svg className={styles.socialImg}>
-                                <use xlinkHref={`${sprite}#telegram`}></use>
-                            </svg>
-                        </a>
-                    </li>
-                    <li className={styles.socialItem}>
-                        <a className={styles.socialLink} href="#">
-                            <svg className={styles.socialImg}>
-                                <use xlinkHref={`${sprite}#youtube`}></use>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-                <div className={styles.copyright}>©2022 Все права защищены</div>
+            <div className={styles.container + ' container'}>
+                <div className={styles.wrapper}>
+                    <div className={styles.textBlock}>
+                        <h2 className={styles.title}>Птичкин Михаил</h2>
+                        <p className={styles.copyright}>©2022 Все права защищены</p>
+                    </div>
+                    <ul className={styles.social}>
+                        <SocialItem itemClass={styles.socialItem} link={'https://github.com/MikhailPtichkin88'} svgClass={styles.svg} svgPic={`${sprite}#github`}/>
+                        <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5'} svgClass={styles.svg} svgPic={`${sprite}#telegram`}/>
+                        <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5styles.svg'} svgClass={styles.svg} svgPic={`${sprite}#whatsapp`}/>
+                        <SocialItem itemClass={styles.socialItem} link={'https://www.linkedin.com/in/milkhail-ptichkin/'} svgClass={styles.svg} svgPic={`${sprite}#linkedin`}/>
+                    </ul>
+                </div>
             </div>
         </footer>
     );

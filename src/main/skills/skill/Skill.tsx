@@ -11,7 +11,9 @@ const Skill = (props:SkillPropsType) => {
     return (
         <div className={styles.skillBlock} style={{gridColumnStart:`${props.place ? props.place : ''}`}}>
             <div>
-                <img className={styles.img} src={props.img} alt="HTML5"/>
+                <svg className={styles.img}>
+                    <use xlinkHref={props.img}></use>
+                </svg>
             </div>
             <div className={styles.subtitle}>{props.title}</div>
         </div>
