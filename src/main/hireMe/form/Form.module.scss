@@ -123,3 +123,16 @@ input[type=number] {
     transform: scale(1);
   }
 }
+
+@media(max-width: 576px){
+
+  .wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .inputBlock,
+  .textAreaBlock  {
+    width: 100%;
+  }
+}

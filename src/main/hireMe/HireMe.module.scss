@@ -5,7 +5,7 @@
 }
 
 .title {
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 }
 
 .telBtn {
@@ -63,12 +63,13 @@
 }
 
 .socialItem{
+  padding-top: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 80px;
   height: 80px;
-  border-radius: 50%;
+  border-radius: 12px;
   -webkit-transition: transform 0.3s ease, box-shadow 0.3s ease;
   -moz-transition: transform 0.3s ease, box-shadow 0.3s ease;
   -ms-transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -79,7 +80,6 @@
     .telImg {
       animation-play-state: paused;
     }
-
     transform: scale(1.01) translateX(2px) translateY(-2px);
     box-shadow: 0 4px 8px rgba(97, 97, 97, 0.58), 0px 8px 20px rgba(97, 97, 97, 0.58);
   }
@@ -91,8 +91,8 @@
 }
 
 .svg{
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
 }
 
 @keyframes grow {
@@ -104,5 +104,50 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+@media(max-width: 768px){
+  .section {
+    padding: 50px 0 50px;
+  }
+  .title {
+    font-size: 32px;
+    width: 400px;
+    margin: 0 auto;
+    margin-bottom: 80px;
+  }
+  .telBtn{
+    margin-bottom: 60px;
+  }
+}
+
+@media(max-width: 576px){
+
+  .title {
+    font-size: 26px;
+    max-width: 330px;
+    margin: 0 auto;
+    margin-bottom: 70px;
+  }
+
+  .telBtn{
+    padding: 15px 20px 15px 75px;
+    max-width: 225px;
+    margin-bottom: 40px;
+  }
+
+  .socialMenu{
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  .socialItem{
+    width: 50px;
+    height: 50px;
+  }
+  .svg{
+    width: 40px;
+    height: 40px;
   }
 }

@@ -19,7 +19,7 @@ const Skills = () => {
                   <Skill title='Redux' img={`${sprite}#redux`}/>
                   <Skill title='Git' img={`${sprite}#git`}/>
                   <Skill title='Gulp' img={`${sprite}#gulp(1)`}/>
-                  <Skill title='JQuery' img={`${sprite}#jquery`} place='2'/>
+                  <Skill title='JQuery' img={`${sprite}#jquery`}/>
                   <Skill title='Figma' img={`${sprite}#figma`}/>
                 </div>
             </div>

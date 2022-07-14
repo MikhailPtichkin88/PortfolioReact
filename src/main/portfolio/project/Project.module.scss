@@ -14,7 +14,6 @@
 
     & .stackInfo {
       filter: saturate(100%) brightness(100%);
-      //transform: scale(1);
       opacity: 1;
     }
   }
@@ -45,6 +44,7 @@
   transition: opacity 0.3s;
   opacity: 0;
 }
+
 .stack {
   margin-bottom: 5px;
   span{
@@ -52,10 +52,11 @@
     font-size: 19px;
   }
 }
+
 .linksBlock{
   display: flex;
-
 }
+
 .link {
   padding: 5px;
   margin: 0 auto;

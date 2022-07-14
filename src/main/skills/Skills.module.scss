@@ -18,6 +18,21 @@
   gap: 20px;
   justify-content: center;
   padding: 20px;
-
   border-radius: 12px ;
+}
+
+@media(max-width: 768px){
+
+  .wrapper{
+    grid-template-columns: repeat(3, 150px);
+  }
+  .section{
+    padding: 20px 0 30px;
+  }
+}
+
+@media(max-width: 576px){
+  .wrapper{
+    grid-template-columns: repeat(2, 150px);
+  }
 }

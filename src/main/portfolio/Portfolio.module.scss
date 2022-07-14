@@ -15,3 +15,25 @@
   padding-left: 30px; /* gutter size */
   background-clip: padding-box;
 }
+@media(max-width: 768px){
+  .container{
+    padding: 0 30px;
+  }
+}
+@media(max-width: 480px){
+  .masonryCols{
+    padding-left: 0;
+
+  }
+  .container{
+    padding: 0 15px;
+  }
+  .masonry{
+    width: 90%;
+    margin: 0 auto;
+    justify-content: center;
+  }
+  .section {
+    padding: 60px 0 0 0;
+  }
+}

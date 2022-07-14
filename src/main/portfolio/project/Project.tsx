@@ -6,7 +6,8 @@ type ProjectPropsType = {
     title: string
     descr?: string
     stack?: string
-    link?: string
+    link: string
+    gitHubLink:string
     height?: string
 }
 
@@ -21,7 +22,7 @@ const Project = (props: ProjectPropsType) => {
                         <a href={props.link} className={styles.link}>
                             Demo
                         </a>
-                        <a href={props.link} className={styles.link}>
+                        <a href={props.gitHubLink} className={styles.link}>
                             Code
                         </a>
                     </div>
