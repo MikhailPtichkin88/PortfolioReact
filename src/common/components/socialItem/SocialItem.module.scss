@@ -1,6 +1,12 @@
 .socialLink{
   &:focus{
     outline: transparent;
-
+    -webkit-tap-highlight-color:  transparent;
   }
+  &:active{
+    -webkit-tap-highlight-color:  transparent;
+  }
+}
+.socialItem{
+  -webkit-tap-highlight-color:  transparent;
 }

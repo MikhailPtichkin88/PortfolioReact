@@ -23,7 +23,10 @@
   font-style: normal;
   font-display: swap;
 }
-html{
+html,
+body{
+  overflow-x: hidden;
+  position: relative;
   box-sizing: border-box;
 }
 
@@ -77,14 +80,12 @@ a{
   text-decoration: none;
 }
 body {
-  overflow-x: hidden;
   margin: 0;
   font-family: 'Gilroy',  sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   color:#070707;
-
 }
 
 code {

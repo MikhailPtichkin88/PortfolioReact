@@ -87,7 +87,7 @@
     margin: 0 auto;
   }
   .courses{
-    background-position: left bottom,center 7px, right bottom ;
+    background-position: left bottom,60px 7px, right bottom ;
   }
   .lotte{
     height: 120px;
@@ -97,5 +97,8 @@
     text-align:left;
     font-weight: 500;
     line-height: 1.4;
+  }
+  .list{
+    padding-left: 10px;
   }
 }

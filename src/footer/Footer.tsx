@@ -16,7 +16,7 @@ const Footer = () => {
                     <ul className={styles.social}>
                         <SocialItem itemClass={styles.socialItem} link={'https://github.com/MikhailPtichkin88'} svgClass={styles.svg} svgPic={`${sprite}#github`}/>
                         <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5'} svgClass={styles.svg} svgPic={`${sprite}#telegram`}/>
-                        <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5styles.svg'} svgClass={styles.svg} svgPic={`${sprite}#whatsapp`}/>
+                        <SocialItem itemClass={styles.socialItem} link={'https://wa.me/+79266655382'} svgClass={styles.svg} svgPic={`${sprite}#whatsapp`}/>
                         <SocialItem itemClass={styles.socialItem} link={'https://www.linkedin.com/in/milkhail-ptichkin/'} svgClass={styles.svg} svgPic={`${sprite}#linkedin`}/>
                     </ul>
                 </div>

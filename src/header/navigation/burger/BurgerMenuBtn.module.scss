@@ -27,6 +27,7 @@
 
 @media (max-width: 576px) {
   .btn{
+    -webkit-tap-highlight-color:  transparent;
     display: block;
     position: absolute;
     padding: 10px;

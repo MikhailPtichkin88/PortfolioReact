@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Nav.module.scss';
 import BurgerMenuBtn from "./burger/BurgerMenuBtn";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
@@ -8,14 +8,21 @@ import sprite from "../../common/images/footer/footerSprite.svg";
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
 
-    const toggleBurgerMenuHandler = (isOpen:boolean) => setIsOpen(isOpen)
+    const toggleBurgerMenuHandler = (isOpen: boolean) => setIsOpen(isOpen)
     const onClickLinkHandler = () => setIsOpen(false)
     const active = isOpen ? ` ${styles.active}` : ""
+
+    useEffect(() => {
+        window.addEventListener('scroll', onClickLinkHandler, {once: true});
+        return () => {
+            window.removeEventListener('scroll', onClickLinkHandler,)
+        }
+    })
 
     return (
         <nav className={styles.menu}>
             <BurgerMenuBtn isOpen={isOpen} setIsOpen={toggleBurgerMenuHandler}/>
-            <ul className={styles.navList+active}>
+            <ul className={styles.navList + active} onScroll={() => setIsOpen(false)}>
                 <li className={styles.navItem}>
                     <AnchorLink onClick={onClickLinkHandler} href="#about"
                                 className={styles.navLink + ' ' + styles.active} offset='100'>
@@ -42,13 +49,21 @@ const Nav = () => {
                         Контакты
                     </AnchorLink>
                 </li>
+                <li>
+                    <ul className={styles.socialAside + active}>
+                        <SocialItem itemClass={styles.socialItem} link={'https://github.com/MikhailPtichkin88'}
+                                    svgClass={styles.svg} svgPic={`${sprite}#github`}/>
+                        <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5'} svgClass={styles.svg}
+                                    svgPic={`${sprite}#telegram`}/>
+                        <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5styles.svg'}
+                                    svgClass={styles.svg} svgPic={`${sprite}#whatsapp`}/>
+                        <SocialItem itemClass={styles.socialItem}
+                                    link={'https://www.linkedin.com/in/milkhail-ptichkin/'} svgClass={styles.svg}
+                                    svgPic={`${sprite}#linkedin`}/>
+                    </ul>
+                </li>
             </ul>
-            <ul className={styles.socialAside+active}>
-                <SocialItem itemClass={styles.socialItem} link={'https://github.com/MikhailPtichkin88'} svgClass={styles.svg} svgPic={`${sprite}#github`}/>
-                <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5'} svgClass={styles.svg} svgPic={`${sprite}#telegram`}/>
-                <SocialItem itemClass={styles.socialItem} link={'https://t.me/MikePt5styles.svg'} svgClass={styles.svg} svgPic={`${sprite}#whatsapp`}/>
-                <SocialItem itemClass={styles.socialItem} link={'https://www.linkedin.com/in/milkhail-ptichkin/'} svgClass={styles.svg} svgPic={`${sprite}#linkedin`}/>
-            </ul>
+
         </nav>
     );
 };

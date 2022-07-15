@@ -268,8 +268,17 @@
   }
 }
 
-@media(max-width:991px) {
+@media(max-width:768px) {
   .carousel .slider-wrapper {
     padding: 10px 2px;
+  }
+  .dot{
+    -webkit-tap-highlight-color:  transparent !important;
+    &:focus{
+      -webkit-tap-highlight-color:  transparent !important;
+    }
+    &:active{
+      -webkit-tap-highlight-color:  transparent !important;
+    }
   }
 }

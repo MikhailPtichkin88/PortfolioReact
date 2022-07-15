@@ -3,7 +3,7 @@ import styles from './About.module.scss'
 import photoWebp from '../../common/images/photo.webp';
 import photoJpg from '../../common/images/photo.jpg';
 import LanguageChange from "../../header/navigation/language/LanguageChange";
-
+import pdf from '../../common/pdf/print.pdf';
 
 const About = () => {
     return (
@@ -18,7 +18,7 @@ const About = () => {
                         <div className={styles.info}>
                             <span>Frontend developer</span>
                             Россия, Москва
-                            <a className={styles.pdfLink} href="./print.pdf">
+                            <a className={styles.pdfLink} target = "_blank" href={pdf}>
                                 распечатать PDF
                             </a>
                         </div>
