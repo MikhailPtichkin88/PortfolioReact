@@ -7,22 +7,34 @@ import sprite from "../../common/images/footer/footerSprite.svg";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
-
+    const [aside, setAside] = useState(false)
     const toggleBurgerMenuHandler = (isOpen: boolean) => setIsOpen(isOpen)
     const onClickLinkHandler = () => setIsOpen(false)
     const active = isOpen ? ` ${styles.active}` : ""
+    const asideClass = aside ? ` ${styles.aside}` : ""
+
+    const checkScrollPosition = () => {
+
+        if(window.scrollY > 500)  setAside(true)
+        if(window.scrollY < 300) setAside(false)
+        if(window.innerWidth<768) setAside(false)
+    }
+
 
     useEffect(() => {
         window.addEventListener('scroll', onClickLinkHandler, {once: true});
+        window.addEventListener('scroll', checkScrollPosition)
         return () => {
             window.removeEventListener('scroll', onClickLinkHandler,)
+            window.removeEventListener('scroll', checkScrollPosition,)
         }
     })
+
 
     return (
         <nav className={styles.menu}>
             <BurgerMenuBtn isOpen={isOpen} setIsOpen={toggleBurgerMenuHandler}/>
-            <ul className={styles.navList + active} onScroll={() => setIsOpen(false)}>
+            <ul className={styles.navList + active + asideClass} onScroll={() => setIsOpen(false)}>
                 <li className={styles.navItem}>
                     <AnchorLink onClick={onClickLinkHandler} href="#about"
                                 className={styles.navLink + ' ' + styles.active} offset='100'>
@@ -49,7 +61,7 @@ const Nav = () => {
                         Контакты
                     </AnchorLink>
                 </li>
-                <li>
+                <li className={styles.socialAside + active}>
                     <ul className={styles.socialAside + active}>
                         <SocialItem itemClass={styles.socialItem} link={'https://github.com/MikhailPtichkin88'}
                                     svgClass={styles.svg} svgPic={`${sprite}#github`}/>

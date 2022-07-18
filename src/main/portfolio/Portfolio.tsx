@@ -56,7 +56,7 @@ const Portfolio = () => {
                              gitHubLink={'https://github.com/MikhailPtichkin88/Food'}/>
                     </ScrollAnimation>
                     <ScrollAnimation animateIn={c.animate__fadeInUp} animateOnce={true} duration={1.8}>
-                    <Project img={social} title="Friends" descr="SocialItem network" stack="React, Redux, restApi"
+                    <Project img={social} title="Friends" descr="Social network" stack="React, Redux, restApi"
                              height='340px'
                              link={'https://github.com/MikhailPtichkin88/social-network/tree/dev'}
                              gitHubLink={'https://github.com/MikhailPtichkin88/social-network/tree/dev'}/>
