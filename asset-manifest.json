@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PortfolioReact/static/css/main.793326ec.css",
-    "main.js": "/PortfolioReact/static/js/main.63aa8493.js",
+    "main.css": "/PortfolioReact/static/css/main.e537d875.css",
+    "main.js": "/PortfolioReact/static/js/main.d34a99a2.js",
     "static/js/787.1ed0c42c.chunk.js": "/PortfolioReact/static/js/787.1ed0c42c.chunk.js",
     "static/media/incubator.jpg": "/PortfolioReact/static/media/incubator.00f8330034d8dcd63ac7.jpg",
     "static/media/photo.jpg": "/PortfolioReact/static/media/photo.7dc56aa9e75d4b46d37a.jpg",
@@ -32,12 +32,12 @@
     "static/media/phone.svg": "/PortfolioReact/static/media/phone.4a945f479b4fb96bc4fe032e51bdd3a8.svg",
     "static/media/icon.svg": "/PortfolioReact/static/media/icon.866e934c4952c86f85c8e954e27aac60.svg",
     "static/media/mail.svg": "/PortfolioReact/static/media/mail.38f97cbba53cad8a77ba39a744cca967.svg",
-    "main.793326ec.css.map": "/PortfolioReact/static/css/main.793326ec.css.map",
-    "main.63aa8493.js.map": "/PortfolioReact/static/js/main.63aa8493.js.map",
+    "main.e537d875.css.map": "/PortfolioReact/static/css/main.e537d875.css.map",
+    "main.d34a99a2.js.map": "/PortfolioReact/static/js/main.d34a99a2.js.map",
     "787.1ed0c42c.chunk.js.map": "/PortfolioReact/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.793326ec.css",
-    "static/js/main.63aa8493.js"
+    "static/css/main.e537d875.css",
+    "static/js/main.d34a99a2.js"
   ]
 }
