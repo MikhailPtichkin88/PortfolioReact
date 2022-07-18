@@ -4,9 +4,11 @@ import styles from './Skill.module.scss'
 type SkillPropsType={
     title:string
     img:string
+
 }
 
 const Skill = (props:SkillPropsType) => {
+
     return (
         <div className={styles.skillBlock} >
             <div>
