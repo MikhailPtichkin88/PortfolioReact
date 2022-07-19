@@ -4,10 +4,12 @@ import BurgerMenuBtn from "./burger/BurgerMenuBtn";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import {SocialItem} from "../../common/components/socialItem/SocialItem";
 import sprite from "../../common/images/footer/footerSprite.svg";
+import NavButtonUp from "./navButtonUp/NavButtonUp";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [aside, setAside] = useState(false)
+    const [asideAdaptive, setAsideAdaptive] = useState(false)
     const toggleBurgerMenuHandler = (isOpen: boolean) => setIsOpen(isOpen)
     const onClickLinkHandler = () => setIsOpen(false)
     const active = isOpen ? ` ${styles.active}` : ""
@@ -15,9 +17,12 @@ const Nav = () => {
 
     const checkScrollPosition = () => {
 
-        if(window.scrollY > 500)  setAside(true)
-        if(window.scrollY < 300) setAside(false)
-        if(window.innerWidth<768) setAside(false)
+        if (window.scrollY > 500) setAside(true)
+        if (window.scrollY < 300)
+            setAside(false)
+        setAsideAdaptive(false)
+        if (window.innerWidth < 576) setAside(false)
+        if (window.innerWidth < 576 && window.scrollY > 500) setAsideAdaptive(true)
     }
 
 
@@ -75,7 +80,7 @@ const Nav = () => {
                     </ul>
                 </li>
             </ul>
-
+            <NavButtonUp visible={asideAdaptive}/>
         </nav>
     );
 };
