@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './About.module.scss'
 import photoWebp from '../../common/images/photo.webp';
 import photoJpg from '../../common/images/photo.jpg';
-import LanguageChange from "../../header/navigation/language/LanguageChange";
+import LanguageChange from "./language/LanguageChange";
 import pdf from '../../common/pdf/print.pdf';
+import {Context, LangType} from "../../App";
 
-const About = () => {
+type AboutPropsType = {
+    changeLang: (lang: LangType) => void
+}
+
+const About = (props: AboutPropsType) => {
+
+    let langActive = useContext(Context)
+
     return (
         <section id='about'>
             <div className={styles.wrapper}>
@@ -17,13 +25,19 @@ const About = () => {
 
                         <div className={styles.info}>
                             <span>Frontend developer</span>
-                            Россия, Москва
-                            <a className={styles.pdfLink} target = "_blank" href={pdf}>
+                            {
+                                (langActive === 'rus')
+                                    ? "Россия, Москва"
+                                : "Moscow, Russia"
+                            }
+
+                            <a className={styles.pdfLink} target="_blank" href={pdf}>
                                 распечатать PDF
                             </a>
                         </div>
 
-                        <LanguageChange active={true}/>
+                        <LanguageChange active={true} changeLang={props.changeLang}/>
+
                     </div>
                     <div className={styles.photoContainer}>
                         <picture>

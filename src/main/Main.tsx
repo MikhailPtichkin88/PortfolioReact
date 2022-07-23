@@ -4,12 +4,18 @@ import Experience from "./experience/Experience";
 import Skills from "./skills/Skills";
 import Portfolio from "./portfolio/Portfolio";
 import HireMe from "./hireMe/HireMe";
+import {LangType} from "../App";
 
-const Main = () => {
+type MainPropsType={
+    changeLang:(lang:LangType)=>void
+}
+
+const Main = (props:MainPropsType) => {
 
     return (
    <main>
-       <About/>
+
+       <About changeLang={props.changeLang} />
        <Experience/>
        <Skills/>
        <Portfolio/>

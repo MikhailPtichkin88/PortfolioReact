@@ -10,12 +10,11 @@
   font-size: 16px;
   line-height: 20px;
   color: #828282;
-
-  &_active {
-    color: #070707;
-  }
+  transition: color 0.3s;
 }
-
+.active {
+  color: #070707;
+}
 .remove {
   display: none;
 }

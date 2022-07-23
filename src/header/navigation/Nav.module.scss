@@ -156,7 +156,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 70%;
+    top: 55%;
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -192,15 +192,18 @@
 
 @media(max-height: 500px) {
   .navList {
-    padding-top: 30px;
+    padding:10px 0;
     overflow: auto;
   }
   .navItem {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
   }
   .navLink {
     font-weight: 700;
-    font-size: 28px;
+    font-size: 20px;
+    &:after{
+      top: 43px;
+    }
   }
   .socialAside {
     flex-direction: column;
