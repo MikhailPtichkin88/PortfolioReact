@@ -3,15 +3,25 @@ import styles from "./Form.module.scss"
 import mail from "../../../common/images/hireMe/mail.svg"
 import {Context} from "../../../App";
 import {send} from 'emailjs-com';
+import {ShowModalType} from "../HireMe";
+import spinner from '../../../common/images/form/spinner.svg'
 
 
-const Form = () => {
+type SendDataType = {
+    from_name: string,
+    from_mail: string,
+    message: string,
+}
 
-    type SendDataType = {
-        from_name: string,
-        from_mail: string,
-        message: string,
-    }
+
+type FormPropsType = {
+    showModal: (isShow: ShowModalType) => void
+}
+type ErrorType = 'none' | 'nameError' | 'mailError' | 'messageError'
+
+
+const Form = (props: FormPropsType) => {
+
 
     let langActive = useContext(Context)
     let [toSend, setToSend] = useState<SendDataType>({
@@ -20,8 +30,9 @@ const Form = () => {
         message: '',
     })
 
-    type ErrorType = 'none' | 'nameError' | 'mailError' | 'messageError'
     const [error, setError] = useState<ErrorType>('none')
+    const [disable, setDisable] = useState(false)
+
 
     const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
         setError('none' as ErrorType)
@@ -30,13 +41,16 @@ const Form = () => {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setDisable(true)
         if (toSend.from_name.trim().length < 2) {
             setError('nameError' as ErrorType)
 
-        } else  if (toSend.from_mail.trim().length < 5 || !toSend.from_mail.includes('@')  || (!toSend.from_mail.includes('.ru') && !toSend.from_mail.includes('.com') && !toSend.from_mail.includes('.org')&& !toSend.from_mail.includes('.ua')&& !toSend.from_mail.includes('.by')&& !toSend.from_mail.includes('.info'))) {
+        } else if (toSend.from_mail.trim().length < 5 || !toSend.from_mail.includes('@') || (!toSend.from_mail.includes('.ru') && !toSend.from_mail.includes('.com') && !toSend.from_mail.includes('.org') && !toSend.from_mail.includes('.ua') && !toSend.from_mail.includes('.by') && !toSend.from_mail.includes('.info'))) {
             setError('mailError' as ErrorType)
+
         } else if (toSend.message.trim().length < 2) {
             setError('messageError' as ErrorType)
+
         } else {
             send(
                 'service_s1qsplq',
@@ -46,9 +60,19 @@ const Form = () => {
             )
                 .then((response) => {
                     console.log('SUCCESS!', response.status, response.text);
+                    props.showModal("showSuccess" as ShowModalType)
+                    setToSend({
+                        ...toSend,
+                        from_name: '',
+                        from_mail: '',
+                        message: '',
+                    })
+                    setDisable(false)
                 })
                 .catch((err) => {
                     console.log('FAILED...', err);
+                    props.showModal("showError" as ShowModalType)
+                    setDisable(false)
                 });
         }
     };
@@ -116,12 +140,19 @@ const Form = () => {
                               }/>
                 </div>
             </div>
-            <button className={styles.btn} type="submit">{
-                (langActive === 'rus')
-                    ? "Отправить"
-                    : "Send"
+            <button disabled={disable} className={styles.btn} type="submit">{
+                disable
+                    ? <img src={spinner} className={styles.spinner} alt={'spinner'}/>
+                    : (langActive === 'rus')
+                        ? "Отправить"
+                        : "Send"
             }
-                <img className={styles.mailImg} src={mail} alt="mail"/>
+                {
+                    disable
+                        ? ""
+                        : <img className={styles.mailImg} src={mail} alt="mail"/>
+                }
+
             </button>
         </form>
     );

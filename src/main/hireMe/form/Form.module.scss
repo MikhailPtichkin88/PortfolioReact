@@ -99,8 +99,10 @@
 .btn {
   position: relative;
   display: block;
+  min-width: 150px;
+  min-height: 50px;
   margin: 0 auto;
-  padding: 15px 20px 15px 50px;
+  padding: 15px 19px 15px 49px;
   border: none;
   border-radius: 12px;
   background-color: #fff;
@@ -173,4 +175,15 @@
     right: initial;
     left: 20px;
   }
+}
+
+.spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }

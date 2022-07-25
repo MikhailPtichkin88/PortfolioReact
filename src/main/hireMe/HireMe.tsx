@@ -1,12 +1,29 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './HireMe.module.scss'
 import {SocialItem} from "../../common/components/socialItem/SocialItem";
 import sprite from '../../common/images/hireMe/hireMeSprite.svg'
-import tel from '../../common/images/hireMe/telephone.svg';
 import Form from "./form/Form";
 import {Context} from "../../App";
+import ModalWindow from "../../common/components/modalWindow/ModalWindow";
+
+
+export type ShowModalType = "showSuccess" | "showError" | "none"
 
 const HireMe = () => {
+
+    const [showModal, setShowModal] = useState<ShowModalType>("none")
+
+    const showModalHandler = (isShow: ShowModalType) => setShowModal(isShow)
+    const hideModalHandler = () => setShowModal("none" as ShowModalType)
+
+const modalWindow = () =>{
+        if(showModal === "showSuccess"){
+            return <ModalWindow isSuccess={true} callback={hideModalHandler}/>
+        }else if(showModal==="showError"){
+            return <ModalWindow isSuccess={false} callback={hideModalHandler}/>
+        }
+}
+
     let langActive = useContext(Context)
     return (
         <section className={styles.section} id='hire'>
@@ -17,7 +34,7 @@ const HireMe = () => {
                             ? "Рассматриваю варианты удаленной работы"
                             : "I'm considering options for remote work"
                     }
-                   </h2>
+                </h2>
 
                 <ul className={styles.socialMenu}>
                     <SocialItem itemClass={styles.socialItem} link="mailto:mikhailptichkin1988@gmail.com"
@@ -32,7 +49,10 @@ const HireMe = () => {
                                 svgClass={styles.svg} svgPic={`${sprite}#telephone`}/>
                 </ul>
 
-                <Form/>
+                <Form showModal={showModalHandler}/>
+
+                {modalWindow()}
+
             </div>
         </section>
     );
