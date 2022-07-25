@@ -1,0 +1,104 @@
+.slide{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  width: 80%;
+  min-height: 150px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(97, 97, 97, 0.18), 0px 4px 8px rgba(97, 97, 97, 0.18);
+  border-radius: 12px;
+}
+
+.img{
+  width: calc(30% - 15px);
+  padding-right: 5px;
+  margin-right: 10px;
+  align-self: normal;
+}
+.courses{
+  background-position: 20px 10px,30px 80px, 80% center ;
+  background-size: 50px, 50px, 50px ;
+  background-repeat: no-repeat;
+}
+.lotte{
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.text{
+  width: 70%;
+  text-align:left;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.textCourses{
+  line-height: initial;
+}
+.list{
+  padding-left: 40px;
+  font-weight: 400;
+  list-style: initial;
+  padding-top:  10px;
+}
+.item{
+  text-align: left;
+  &:not(:last-child){
+    margin-bottom: 5px;
+  }
+}
+.bold{
+  color: #000;
+}
+
+@media(max-width:991px){
+  .slide{
+    width: 95%;
+  }
+  .slide{
+    justify-content: space-between;
+  }
+.img{
+  width: 160px;
+}
+  .courses{
+    background-position: 20px 10px,30px 80px, 90% center ;
+  }
+}
+
+@media(max-width:768px){
+  .img{
+    width: 100px;
+    margin-right: 0;
+  }
+  .courses{
+    background-position: 40px top,40px center, 40px bottom ;
+  }
+}
+
+@media(max-width:576px){
+  .slide{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .img{
+    width: 180px;
+    height: 50px;
+    margin: 0 auto;
+  }
+  .courses{
+    background-position: left bottom,60px 7px, right bottom ;
+  }
+  .lotte{
+    height: 120px;
+  }
+  .text{
+    width: 90%;
+    text-align:left;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .list{
+    padding-left: 10px;
+  }
+}

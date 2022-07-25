@@ -1,22 +1,26 @@
 import React from 'react';
-import styleContainer from '../common/styles/Container.module.css'
-import styles from './Main.module.css'
+import About from "./about/About";
+import Experience from "./experience/Experience";
+import Skills from "./skills/Skills";
+import Portfolio from "./portfolio/Portfolio";
+import HireMe from "./hireMe/HireMe";
+import {LangType} from "../App";
 
-const Main = () => {
+type MainPropsType={
+    changeLang:(lang:LangType)=>void
+}
+
+const Main = (props:MainPropsType) => {
 
     return (
-        <section className={styles.mainBlock}>
-            <div className={styleContainer.containerLine}>
-                <div className={styles.text}>
-                    <span>Привет!</span>
-                    <h1>Меня зовут Птичкин Михаил</h1>
-                    <span>Я front-end разработчик</span>
-                </div>
+   <main>
 
-                <div className={styles.photo}></div>
-            </div>
-
-        </section>
+       <About changeLang={props.changeLang} />
+       <Experience/>
+       <Skills/>
+       <Portfolio/>
+       <HireMe/>
+   </main>
     );
 };
 

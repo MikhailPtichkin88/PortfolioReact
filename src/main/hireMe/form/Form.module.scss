@@ -1,0 +1,189 @@
+.form {
+  position: relative;
+  padding: 10px 0;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.wrapper {
+
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.inputBlock {
+  width: calc(45% - 20px);
+  padding: 5px;
+}
+
+.input {
+  -webkit-appearance: none;
+  width: 100%;
+  font-size: 16px;
+  padding: 15px 20px;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 2px 4px rgb(97 97 97 / 18%), 0 4px 8px rgb(97 97 97 / 18%);
+  -webkit-transition: box-shadow 0.3s ease;
+  -moz-transition: box-shadow 0.3s ease;
+  -ms-transition: box-shadow 0.3s ease;
+  -o-transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+
+  &::placeholder {
+    color: #828282;
+  }
+
+  &:hover {
+    box-shadow: 0 1px 1px rgba(97, 97, 97, 0.58), 1px 2px 3px rgba(97, 97, 97, 0.58);
+  }
+
+  &:focus {
+    outline: transparent;
+    box-shadow: 2px 2px 2px rgba(97, 97, 97, 0.58), 2px 4px 5px rgba(97, 97, 97, 0.58);
+  }
+  &.error {
+    box-shadow: 2px 2px 2px rgba(245, 65, 61, 0.58), 2px 4px 5px rgba(245, 65, 61, 0.58);
+  }
+  &.error::placeholder {
+    color: transparent;
+  }
+}
+
+.nameInput {
+  margin-bottom: 10px;
+}
+
+.nameErrorMsg,
+.mailErrorMsg,
+.messageErrorMsg{
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  color: transparent;
+  -webkit-transition: color 0.3s;
+  -moz-transition: color 0.3s;
+  -ms-transition: color 0.3s;
+  -o-transition: color 0.3s;
+  transition: color 0.3s;
+
+  &.error {
+    color: #F5413D;
+  }
+}
+.mailErrorMsg{
+  top: initial;
+  bottom: 70px;
+}
+.messageErrorMsg{
+  left: initial;
+  right: 20px;
+}
+.telInput {
+  -webkit-appearance: none;
+}
+
+.textAreaBlock {
+  width: calc(55% - 20px);
+  padding: 5px;
+}
+
+.textArea {
+  resize: vertical;
+  min-height: 110px;
+  max-height: 250px;
+}
+
+.btn {
+  position: relative;
+  display: block;
+  min-width: 150px;
+  min-height: 50px;
+  margin: 0 auto;
+  padding: 15px 19px 15px 49px;
+  border: none;
+  border-radius: 12px;
+  background-color: #fff;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgb(97 97 97 / 18%), 0px 4px 8px rgb(97 97 97 / 18%);
+  -webkit-transition: box-shadow 0.3s ease;
+  -moz-transition: box-shadow 0.3s ease;
+  -ms-transition: box-shadow 0.3s ease;
+  -o-transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 2px 2px 2px rgba(97, 97, 97, 0.58), 2px 4px 5px rgba(97, 97, 97, 0.58);
+
+    .mailImg {
+      animation-play-state: paused;
+    }
+  }
+
+  &:focus {
+    outline: transparent;
+  }
+
+  &:active {
+    box-shadow: 1px 1px 1px rgba(97, 97, 97, 0.7), 1px 2px 2px rgba(97, 97, 97, 0.7);
+  }
+}
+
+.mailImg {
+  position: absolute;
+  top: 15px;
+  left: 16px;
+  width: 20px;
+  height: 20px;
+  animation-duration: 3s;
+  animation-name: grow;
+  animation-iteration-count: infinite;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@media(max-width: 576px) {
+
+  .wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .inputBlock,
+  .textAreaBlock {
+    width: 100%;
+  }
+  .mailErrorMsg{
+    top: 130px;
+    bottom: initial;
+  }
+  .messageErrorMsg{
+    top: initial;
+    bottom: 70px;
+    right: initial;
+    left: 20px;
+  }
+}
+
+.spinner{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}

@@ -1,0 +1,28 @@
+.lang {
+  transform: rotate(-90deg);
+  position: relative;
+  bottom: 20px;
+  left: 20px;
+}
+
+.link {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #828282;
+  transition: color 0.3s;
+}
+.active {
+  color: #070707;
+}
+.remove {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .lang {
+    transform: rotate(0deg);
+    align-self: flex-end;
+    left: -15px;
+  }
+}
