@@ -1,18 +1,31 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Skill from "./skill/Skill";
 import styles from './Skills.module.scss'
 import sprite from '../../common/images/skills/skillsSprite.svg'
 import c from './animate.module.scss'
 import ScrollAnimation from 'react-animate-on-scroll';
 import click from '../../common/images/skills/click.png'
+import {Context} from "../../App";
 
 const Skills = () => {
-
+    let langActive = useContext(Context)
     return (
         <section className={styles.section} id="skills">
             <div className="container">
-                <h2 className={styles.title + ' title'}>Навыки</h2>
-                <div className={styles.subtitle}>В работе использую:</div>
+                <h2 className={styles.title + ' title'}>
+                    {
+                        (langActive === 'rus')
+                            ? "Навыки"
+                            : "Skills"
+                    }
+                    </h2>
+                <div className={styles.subtitle}>
+                    {
+                        (langActive === 'rus')
+                            ? "В работе использую:"
+                            : "Using now:"
+                    }
+                   </div>
                 <div className={styles.wrapper}>
                     <ScrollAnimation animateIn={c.animate__fadeInUp} animateOnce={true}>
                         <Skill title='HTML5+CSS3' img={`${sprite}#html`}/>
@@ -33,7 +46,7 @@ const Skills = () => {
                         <Skill title='Redux' img={`${sprite}#redux`}/>
                     </ScrollAnimation>
                     <ScrollAnimation className={styles.click} animateIn={c.animate__fadeInUp} duration={2.2} animateOnce={true}>
-                        <a href="https://github.com/MikhailPtichkin88">
+                        <a style={{color:'#070707'}} href="https://github.com/MikhailPtichkin88">
                             <Skill title='Git' img={`${sprite}#git`}/>
                         </a>
                         <img src={click} className={styles.imgClick}/>

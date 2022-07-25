@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styles from './Nav.module.scss';
 import BurgerMenuBtn from "./burger/BurgerMenuBtn";
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import {SocialItem} from "../../common/components/socialItem/SocialItem";
 import sprite from "../../common/images/footer/footerSprite.svg";
 import NavButtonUp from "./navButtonUp/NavButtonUp";
+import {Context} from "../../App";
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -25,6 +26,7 @@ const Nav = () => {
         if (window.innerWidth < 576 && window.scrollY > 500) setAsideAdaptive(true)
     }
 
+    let langActive = useContext(Context)
 
     useEffect(() => {
         window.addEventListener('scroll', onClickLinkHandler, {once: true});
@@ -43,27 +45,47 @@ const Nav = () => {
                 <li className={styles.navItem}>
                     <AnchorLink onClick={onClickLinkHandler} href="#about"
                                 className={styles.navLink + ' ' + styles.active} offset='100'>
-                        Обо мне
+                        {
+                            (langActive === 'rus')
+                                ? "Обо мне"
+                                : "About me"
+                        }
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink onClick={onClickLinkHandler} href="#experience" className={styles.navLink}>
-                        Опыт
+                    <AnchorLink onClick={onClickLinkHandler} href="#experience"offset='20' className={styles.navLink}>
+                        {
+                            (langActive === 'rus')
+                                ? "Опыт"
+                                : "Experience"
+                        }
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink onClick={onClickLinkHandler} href="#skills" className={styles.navLink}>
-                        Навыки
+                    <AnchorLink onClick={onClickLinkHandler} href="#skills" offset='40' className={styles.navLink}>
+                        {
+                            (langActive === 'rus')
+                                ? "Навыки"
+                                : "Skills"
+                        }
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
-                    <AnchorLink onClick={onClickLinkHandler} href="#portfolio" className={styles.navLink} offset='-25'>
-                        Портфолио
+                    <AnchorLink onClick={onClickLinkHandler} href="#portfolio" className={styles.navLink} offset='10'>
+                        {
+                            (langActive === 'rus')
+                                ? "Портфолио"
+                                : "Portfolio"
+                        }
                     </AnchorLink>
                 </li>
                 <li className={styles.navItem}>
                     <AnchorLink onClick={onClickLinkHandler} href="#hire" className={styles.navLink} offset='-50'>
-                        Контакты
+                        {
+                            (langActive === 'rus')
+                                ? "Контакты"
+                                : "Contacts"
+                        }
                     </AnchorLink>
                 </li>
                 <li className={styles.socialAside + active}>

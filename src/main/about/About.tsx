@@ -3,7 +3,8 @@ import styles from './About.module.scss'
 import photoWebp from '../../common/images/photo.webp';
 import photoJpg from '../../common/images/photo.jpg';
 import LanguageChange from "./language/LanguageChange";
-import pdf from '../../common/pdf/print.pdf';
+import pdfRus from '../../common/pdf/print.pdf';
+import pdfEng from '../../common/pdf/print.pdf';
 import {Context, LangType} from "../../App";
 
 type AboutPropsType = {
@@ -20,7 +21,11 @@ const About = (props: AboutPropsType) => {
                 <div className="container">
                     <div className={styles.inner}>
                         <h1 className={styles.name}>
-                            Птичкин Михаил
+                            {
+                                (langActive === 'rus')
+                                    ? "Птичкин Михаил"
+                                    : "Ptichkin Mikhail"
+                            }
                         </h1>
 
                         <div className={styles.info}>
@@ -28,12 +33,15 @@ const About = (props: AboutPropsType) => {
                             {
                                 (langActive === 'rus')
                                     ? "Россия, Москва"
-                                : "Moscow, Russia"
+                                    : "Moscow, Russia"
                             }
-
-                            <a className={styles.pdfLink} target="_blank" href={pdf}>
-                                распечатать PDF
-                            </a>
+                            {
+                                (langActive === 'rus')
+                                    ? <a className={styles.pdfLink} target="_blank"
+                                         href={pdfRus}>CV</a>
+                                    : <a className={styles.pdfLink} target="_blank"
+                                         href={pdfEng}>CV</a>
+                            }
                         </div>
 
                         <LanguageChange active={true} changeLang={props.changeLang}/>

@@ -1,18 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './HireMe.module.scss'
 import {SocialItem} from "../../common/components/socialItem/SocialItem";
 import sprite from '../../common/images/hireMe/hireMeSprite.svg'
-import phone from '../../common/images/hireMe/phone.svg'
+import tel from '../../common/images/hireMe/telephone.svg';
 import Form from "./form/Form";
+import {Context} from "../../App";
 
 const HireMe = () => {
+    let langActive = useContext(Context)
     return (
         <section className={styles.section} id='hire'>
             <div className="container">
-                <h2 className={styles.title + ' title'}>Рассматриваю варианты удаленной работы</h2>
-                <a className={styles.telBtn} href="tel:+79266655382">нанять меня
-                    <img src={phone} className={styles.telImg} alt="telephone picture"/>
-                </a>
+                <h2 className={styles.title + ' title'}>
+                    {
+                        (langActive === 'rus')
+                            ? "Рассматриваю варианты удаленной работы"
+                            : "I'm considering options for remote work"
+                    }
+                   </h2>
+
                 <ul className={styles.socialMenu}>
                     <SocialItem itemClass={styles.socialItem} link="mailto:mikhailptichkin1988@gmail.com"
                                 svgClass={styles.svg} svgPic={`${sprite}#gmail`}/>
@@ -22,6 +28,8 @@ const HireMe = () => {
                                 svgPic={`${sprite}#telegram`}/>
                     <SocialItem itemClass={styles.socialItem} link="https://www.linkedin.com/in/milkhail-ptichkin/"
                                 svgClass={styles.svg} svgPic={`${sprite}#linkedin`}/>
+                    <SocialItem itemClass={styles.socialItem} link="tel:+79266655382"
+                                svgClass={styles.svg} svgPic={`${sprite}#telephone`}/>
                 </ul>
 
                 <Form/>

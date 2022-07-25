@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Project from "./project/Project";
 import Masonry from 'react-masonry-css'
 import styles from './Portfolio.module.scss'
@@ -12,9 +12,11 @@ import story from '../../common/images/projects/storybook.jpg'
 import counter from '../../common/images/projects/counter.jpg'
 import c from "../skills/animate.module.scss";
 import ScrollAnimation from "react-animate-on-scroll";
+import {Context} from "../../App";
 
 
 const Portfolio = () => {
+    let langActive = useContext(Context)
 
     const breakpointColumnsObj = {
         default: 4,
@@ -26,7 +28,13 @@ const Portfolio = () => {
     return (
         <section className={styles.section} id="portfolio">
             <div className={styles.container + ' container'}>
-                <h2 className={styles.title + ' title'}>Портфолио</h2>
+                <h2 className={styles.title + ' title'}>
+                    {
+                        (langActive === 'rus')
+                            ? "Портфолио"
+                            : "Portfolio"
+                    }
+                    </h2>
                 <Masonry
                     breakpointCols={breakpointColumnsObj}
                     className={styles.masonry}

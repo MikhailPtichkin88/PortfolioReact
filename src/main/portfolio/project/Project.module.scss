@@ -85,21 +85,20 @@
 }
 
 .info {
-  padding: 5px;
+  padding: 5px 5px 5px 10px;
   height: 30%;
 }
 
 .title {
   font-size: 18px;
-  padding-left: 10px;
-  position: relative;
+    position: relative;
   letter-spacing: 0.005em;
   margin-bottom: 5px;
 
   &::after {
     position: absolute;
     content: '';
-    left: 10px;
+    left: 0px;
     bottom: -2px;
     width: 20px;
     height: 1px;
@@ -110,7 +109,7 @@
 .descr {
   color: #414141;
   font-size: 16px;
-  text-align: center;
+  text-align: left;
 }
 
 @media(max-width: 1300px) {
