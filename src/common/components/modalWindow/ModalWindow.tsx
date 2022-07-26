@@ -13,9 +13,9 @@ const ModalWindow = (props: ModalWindowPropsType) => {
     let langActive = useContext(Context)
 
     useEffect(()=>{
-        document.body.style.overflow = "hidden"
+        document.body.style.overflowY = "hidden"
         return ()=>{
-            document.body.style.overflow = "initial"
+            document.body.style.overflowY = "initial"
         }
     },[])
 
