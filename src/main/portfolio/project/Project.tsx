@@ -9,6 +9,8 @@ type ProjectPropsType = {
     link: string
     gitHubLink:string
     height?: string
+    link2?:string
+    gitHubLink2?:string
 }
 
 const Project = (props: ProjectPropsType) => {
@@ -22,9 +24,19 @@ const Project = (props: ProjectPropsType) => {
                         <a href={props.link} className={styles.link}>
                             Demo
                         </a>
+                        {
+                            props.link2 && <a href={props.link2} className={styles.link}>
+                                Code
+                            </a>
+                        }
                         <a href={props.gitHubLink} className={styles.link}>
                             Code
                         </a>
+                        {
+                            props.gitHubLink2 &&   <a href={props.gitHubLink2} className={styles.link}>
+                                Code
+                            </a>
+                        }
                     </div>
                 </div>
             </div>

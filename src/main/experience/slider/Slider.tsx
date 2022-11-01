@@ -9,6 +9,7 @@ import udemy from '../../../common/images/experience/udemy.jpg';
 import inc from '../../../common/images/experience/incubator.jpg';
 import from0 from '../../../common/images/experience/from0.jpg';
 import icon from '../../../common/images/experience/icon.svg';
+import liga from '../../../common/images/experience/liga.jpg';
 import {Context} from "../../../App";
 
 
@@ -27,14 +28,25 @@ const SliderComponent = () => {
     return (
         <Carousel {...settings}>
 
+
+                <div className={styles.slide}>
+                    <div className={styles.img + ' ' + styles.lotte} style={{backgroundImage: `url(${liga})`}}></div>
+                    <div className={styles.text}>
+                        {
+                            (langActive === 'rus')
+                                ? ` С  2022 года и по настоящее время работаю в Лиге Цифровой Экономики на должности junior frontend developer.`
+                                : `From 2022 to the present, I have been working in the Digital Economy League as a junior frontend developer.`
+                        }
+                    </div>
+                </div>
             <div className={styles.slide}>
                 <div className={styles.img + ' ' + styles.courses}
                      style={{backgroundImage: `url(${udemy}), url(${from0}), url(${inc})`}}></div>
                 <div className={styles.text + ' ' + styles.textCourses}>
                     {
                         (langActive === 'rus')
-                            ? "C ноября 2021 начал обучение веб-разработке, прошел следующие курсы:"
-                            : "Since November 2021 I've completed several courses:"
+                            ? "C 2021 года начал обучение веб-разработке, прошел следующие курсы:"
+                            : "In 2021 I've finished several courses:"
                     }
 
                     <ul className={styles.list} style={{listStyle: `url(${icon})`}}>
@@ -62,8 +74,8 @@ const SliderComponent = () => {
                         <li className={styles.item}>
                             {
                                 (langActive === 'rus')
-                                    ? "Frontend developer (IT Incubator) - в процессе"
-                                    : "Frontend developer (IT Incubator) - in process"
+                                    ? "Frontend developer (IT Incubator)"
+                                    : "Frontend developer (IT Incubator)"
                             }
                         </li>
                     </ul>
