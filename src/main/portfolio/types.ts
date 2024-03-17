@@ -1,0 +1,16 @@
+export type TStackType =
+  | "react"
+  | "redux"
+  | "ts"
+  | "git"
+  | "js"
+  | "gulp"
+  | "html"
+  | "sass"
+  | "next"
+  | "webpack"
+  | "nodejs"
+  | "express"
+  | "mongodb"
+  | "postgresql"
+  | "jest";

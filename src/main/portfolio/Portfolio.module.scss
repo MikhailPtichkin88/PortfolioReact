@@ -17,6 +17,13 @@
 }
 
 
+.githubLink{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  color: rgb(124, 93, 212);
+}
 @media(max-width: 768px){
   .container{
     padding: 0 30px;

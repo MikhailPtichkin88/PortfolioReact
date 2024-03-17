@@ -19,10 +19,16 @@
 }
 
 .pdfLink{
-  display: block;
+  display: flex;
+  gap: 5px;
   padding-top: 10px;
   color: #070707;
   font-weight: bold;
+  .pdfDescr{
+    font-size: 16px;
+    display: inline;
+    font-weight: 400;
+  }
 }
 
 .info{
