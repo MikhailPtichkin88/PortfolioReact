@@ -1,161 +1,167 @@
-import React, {ChangeEvent, useContext, useState} from 'react';
-import styles from "./Form.module.scss"
-import mail from "../../../common/images/hireMe/mail.svg"
+import React, {ChangeEvent, useContext, useState} from "react";
+import styles from "./Form.module.scss";
+import mail from "../../../common/images/hireMe/mail.svg";
 import {Context} from "../../../App";
-import {send} from 'emailjs-com';
 import {ShowModalType} from "../HireMe";
-import spinner from '../../../common/images/form/spinner.svg'
-
-
-type SendDataType = {
-    from_name: string,
-    from_mail: string,
-    message: string,
-}
-
+import spinner from "../../../common/images/form/spinner.svg";
+import axios from "axios";
 
 type FormPropsType = {
-    showModal: (isShow: ShowModalType) => void
-}
-type ErrorType = 'none' | 'nameError' | 'mailError' | 'messageError'
+  showModal: (isShow: ShowModalType) => void;
+};
 
+type TErrorType = null | "nameError" | "mailError" | "messageError";
+type TInputType = "email" | "message" | "name";
 
-const Form = (props: FormPropsType) => {
+const Form = ({showModal}: FormPropsType) => {
+  let langActive = useContext(Context);
 
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [message, setMessage] = useState("");
 
-    let langActive = useContext(Context)
-    let [toSend, setToSend] = useState<SendDataType>({
-        from_name: '',
-        from_mail: '',
-        message: '',
-    })
+  const [error, setError] = useState<TErrorType>(null);
 
-    const [error, setError] = useState<ErrorType>('none')
-    const [disable, setDisable] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
+  const resetForm = () => {
+    setError(null);
+    setEmail("");
+    setName("");
+    setMessage("");
+  };
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
-        setError('none' as ErrorType)
-        setToSend({...toSend, [e.target.name]: e.target.value});
-    };
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
+    inputType: TInputType
+  ) => {
+    if (inputType === "email") {
+      setEmail(e.currentTarget.value);
+      if (error === "mailError") {
+        setError(null);
+      }
+    }
+    if (inputType === "name") {
+      setName(e.currentTarget.value);
+      if (error === "nameError") {
+        setError(null);
+      }
+    }
+    if (inputType === "message") {
+      setMessage(e.currentTarget.value);
+      if (error === "messageError") {
+        setError(null);
+      }
+    }
+  };
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setDisable(true)
-        if (toSend.from_name.trim().length < 2) {
-            setError('nameError' as ErrorType)
+  const onSubmit = async () => {
+    if (!email) {
+      return setError("mailError");
+    }
+    if (!name) {
+      return setError("nameError");
+    }
+    if (!message) {
+      return setError("messageError");
+    }
+    if (error) {
+      return;
+    }
+    console.log(process.env);
 
-        } else if (toSend.from_mail.trim().length < 5 || !toSend.from_mail.includes('@') || (!toSend.from_mail.includes('.ru') && !toSend.from_mail.includes('.com') && !toSend.from_mail.includes('.org') && !toSend.from_mail.includes('.ua') && !toSend.from_mail.includes('.by') && !toSend.from_mail.includes('.info'))) {
-            setError('mailError' as ErrorType)
+    try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("email", email);
+      formData.append("message", message);
 
-        } else if (toSend.message.trim().length < 2) {
-            setError('messageError' as ErrorType)
+      setIsLoading(true);
+      await axios.post(process.env.REACT_APP_MAIL_URL ?? "", formData);
+      showModal("showSuccess");
+      resetForm();
+    } catch (error) {
+      showModal("showError");
+      return null;
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-        } else {
-            send(
-                'service_s1qsplq',
-                'template_enab9z8',
-                toSend,
-                'laToi1u-5qqXp8qNK'
-            )
-                .then((response) => {
-                    console.log('SUCCESS!', response.status, response.text);
-                    props.showModal("showSuccess" as ShowModalType)
-                    setToSend({
-                        ...toSend,
-                        from_name: '',
-                        from_mail: '',
-                        message: '',
-                    })
-                    setDisable(false)
-                })
-                .catch((err) => {
-                    console.log('FAILED...', err);
-                    props.showModal("showError" as ShowModalType)
-                    setDisable(false)
-                });
-        }
-    };
+  let nameErrorClass = error === "nameError" ? styles.error : "";
+  let nameMailClass = error === "mailError" ? styles.error : "";
+  let messageErrorClass = error === "messageError" ? styles.error : "";
 
-    let nameErrorClass = (error === "nameError") ? styles.error : ""
-    let nameMailClass = (error === "mailError") ? styles.error : ""
-    let messageErrorClass = (error === "messageError") ? styles.error : ""
+  return (
+    <div className={styles.form}>
+      <div className={styles.wrapper}>
+        <div className={styles.inputBlock}>
+          <span className={styles.nameErrorMsg + " " + nameErrorClass}>
+            {langActive === "rus"
+              ? "Некорректно введено имя"
+              : "Incorrect name"}
+          </span>
+          <label className="sr-only" htmlFor="name">
+            name input field
+          </label>
+          <input
+            className={`${styles.input} ${styles.nameInput} ${nameErrorClass}`}
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => handleChange(e, "name")}
+            placeholder={langActive === "rus" ? "Ваше имя" : "Your name"}
+          />
 
-    return (
-        <form className={styles.form} onSubmit={onSubmit}>
-            <div className={styles.wrapper}>
-                <div className={styles.inputBlock}>
-                    <span className={styles.nameErrorMsg + " " + nameErrorClass}>{
-                        (langActive === 'rus')
-                            ? "Некорректно введено имя"
-                            : "Incorrect name"
-                    }</span>
-                    <label className="sr-only" htmlFor="from_name">name input field</label>
-                    <input className={`${styles.input} ${styles.nameInput} ${nameErrorClass}`}
-                           type="text" name='from_name'
-                           id="from_name"
-                           value={toSend.from_name}
-                           onChange={handleChange}
-                           placeholder={
-                               (langActive === 'rus')
-                                   ? "Ваше имя"
-                                   : "Your name"
-                           }/>
-
-                    <span className={styles.mailErrorMsg + " " + nameMailClass}>{
-                        (langActive === 'rus')
-                            ? "Некорректно введен email"
-                            : "Incorrect email"
-                    }</span>
-                    <label className="sr-only" htmlFor="from_mail">mail input field</label>
-                    <input className={`${styles.input} ${nameMailClass}`}
-                           type="text"
-                           name="from_mail"
-                           id="from_mail"
-                           value={toSend.from_mail}
-                           onChange={handleChange}
-                           placeholder={
-                               (langActive === 'rus')
-                                   ? "Ваша почта"
-                                   : "Your mail"
-                           }/>
-                </div>
-                <div className={styles.textAreaBlock}>
-
-                   <span className={styles.messageErrorMsg + " " + messageErrorClass}>{
-                       (langActive === 'rus')
-                           ? "Некорректно введено сообщение"
-                           : "Incorrect message"
-                   }</span>
-                    <label className="sr-only" htmlFor="from_mail">message input field</label>
-                    <textarea className={`${styles.input} ${styles.textArea} ${messageErrorClass}`}
-                              name="message"
-                              id="message"
-                              value={toSend.message}
-                              onChange={handleChange}
-                              placeholder={
-                                  (langActive === 'rus')
-                                      ? "Текст Вашего сообщения"
-                                      : "Your message"
-                              }/>
-                </div>
-            </div>
-            <button disabled={disable} className={styles.btn} type="submit">{
-                disable
-                    ? <img src={spinner} className={styles.spinner} alt={'spinner'}/>
-                    : (langActive === 'rus')
-                        ? "Отправить"
-                        : "Send"
+          <span className={styles.mailErrorMsg + " " + nameMailClass}>
+            {langActive === "rus"
+              ? "Некорректно введен email"
+              : "Incorrect email"}
+          </span>
+          <label className="sr-only" htmlFor="email">
+            mail input field
+          </label>
+          <input
+            className={`${styles.input} ${nameMailClass}`}
+            type="text"
+            value={email}
+            onChange={(e) => handleChange(e, "email")}
+            id="email"
+            placeholder={langActive === "rus" ? "Ваша почта" : "Your mail"}
+          />
+        </div>
+        <div className={styles.textAreaBlock}>
+          <span className={styles.messageErrorMsg + " " + messageErrorClass}>
+            {langActive === "rus"
+              ? "Некорректно введено сообщение"
+              : "Incorrect message"}
+          </span>
+          <label className="sr-only" htmlFor="message">
+            message input field
+          </label>
+          <textarea
+            className={`${styles.input} ${styles.textArea} ${messageErrorClass}`}
+            value={message}
+            onChange={(e) => handleChange(e, "message")}
+            id="message"
+            placeholder={
+              langActive === "rus" ? "Текст Вашего сообщения" : "Your message"
             }
-                {
-                    disable
-                        ? ""
-                        : <img className={styles.mailImg} src={mail} alt="mail"/>
-                }
-
-            </button>
-        </form>
-    );
+          />
+        </div>
+      </div>
+      <button disabled={isLoading} className={styles.btn} onClick={onSubmit}>
+        {isLoading ? (
+          <img src={spinner} className={styles.spinner} alt={"spinner"} />
+        ) : (
+          <>
+            <img className={styles.mailImg} src={mail} alt="mail" />
+            <span>{langActive === "rus" ? "Отправить" : "Send"}</span>
+          </>
+        )}
+      </button>
+    </div>
+  );
 };
 
 export default Form;
