@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PortfolioReact/static/css/main.52c4e327.css",
-    "main.js": "/PortfolioReact/static/js/main.6fbe6728.js",
+    "main.js": "/PortfolioReact/static/js/main.44c048f8.js",
     "static/js/787.1ed0c42c.chunk.js": "/PortfolioReact/static/js/787.1ed0c42c.chunk.js",
     "static/media/internetShop.webp": "/PortfolioReact/static/media/internetShop.162c46caf3cf6d207ec7.webp",
     "static/media/incubator.jpg": "/PortfolioReact/static/media/incubator.00f8330034d8dcd63ac7.jpg",
@@ -11,18 +11,18 @@
     "static/media/secretSanta.png": "/PortfolioReact/static/media/secretSanta.af425f295662c1896d05.png",
     "static/media/quiz.jpg": "/PortfolioReact/static/media/quiz.6f854f77e8bacc8d5e69.jpg",
     "static/media/desire.jpeg": "/PortfolioReact/static/media/desire.ce9b7fc2503b07303f83.jpeg",
-    "static/media/print.pdf": "/PortfolioReact/static/media/print.1fb44cd3c45f1be4961d.pdf",
+    "static/media/planner3.jpg": "/PortfolioReact/static/media/planner3.4024529c72d897898889.jpg",
+    "static/media/print.pdf": "/PortfolioReact/static/media/print.e443e5728932a86c0c73.pdf",
     "static/media/Plekhanov.jpg": "/PortfolioReact/static/media/Plekhanov.7a7bef2bdabfc85be1c2.jpg",
+    "static/media/skillsSprite.svg": "/PortfolioReact/static/media/skillsSprite.ba2f0e8d323a92de888cd330d89044a1.svg",
     "static/media/Gilroy-Medium.woff": "/PortfolioReact/static/media/Gilroy-Medium.9fb036d389499fea946c.woff",
     "static/media/Gilroy-Regular.woff": "/PortfolioReact/static/media/Gilroy-Regular.f7ea3daa0f9af84a44c1.woff",
     "static/media/Gilroy-Bold.woff": "/PortfolioReact/static/media/Gilroy-Bold.a9595f068ac48c0dc66d.woff",
-    "static/media/skillsSprite.svg": "/PortfolioReact/static/media/skillsSprite.db55df6a5bd2b1a6060a3ba9239f795d.svg",
     "static/media/avatar.png": "/PortfolioReact/static/media/avatar.2ef8c30838fca2dfcd47.png",
     "static/media/Gilroy-Medium.woff2": "/PortfolioReact/static/media/Gilroy-Medium.2cb2a1855a5c8eb940c2.woff2",
     "static/media/Gilroy-Bold.woff2": "/PortfolioReact/static/media/Gilroy-Bold.ae811e98ff2f4db1d916.woff2",
     "static/media/Gilroy-Regular.woff2": "/PortfolioReact/static/media/Gilroy-Regular.8ef5c84fdb18e2045fba.woff2",
     "static/media/effector.png": "/PortfolioReact/static/media/effector.4cd7a920d4eeee9e2732.png",
-    "static/media/todolist.jpg": "/PortfolioReact/static/media/todolist.8caba79aeaca5523aea9.jpg",
     "static/media/from0.jpg": "/PortfolioReact/static/media/from0.f869f42d64f4da3e5a1d.jpg",
     "static/media/udemy.jpg": "/PortfolioReact/static/media/udemy.9725847a94fa52ccd654.jpg",
     "static/media/logo_org.jpeg": "/PortfolioReact/static/media/logo_org.608bf7b3769ed628f2b0.jpeg",
@@ -35,11 +35,11 @@
     "static/media/up.svg": "/PortfolioReact/static/media/up.ee5d70e43d6a22a90e48c42a2d660895.svg",
     "static/media/mail.svg": "/PortfolioReact/static/media/mail.38f97cbba53cad8a77ba39a744cca967.svg",
     "main.52c4e327.css.map": "/PortfolioReact/static/css/main.52c4e327.css.map",
-    "main.6fbe6728.js.map": "/PortfolioReact/static/js/main.6fbe6728.js.map",
+    "main.44c048f8.js.map": "/PortfolioReact/static/js/main.44c048f8.js.map",
     "787.1ed0c42c.chunk.js.map": "/PortfolioReact/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.52c4e327.css",
-    "static/js/main.6fbe6728.js"
+    "static/js/main.44c048f8.js"
   ]
 }
