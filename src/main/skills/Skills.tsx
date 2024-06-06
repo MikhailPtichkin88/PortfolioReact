@@ -1,13 +1,11 @@
-import React, {useContext} from "react";
+import { useContext } from "react";
 import Skill from "./skill/Skill";
 import styles from "./Skills.module.scss";
 import sprite from "../../common/images/skills/skillsSprite.svg";
 import effector from "../../common/images/skills/effector.png";
-import tailwind from "../../common/images/skills/tailwind.png";
-import styled from "../../common/images/skills/styled-components.png";
 import c from "./animate.module.scss";
 import ScrollAnimation from "react-animate-on-scroll";
-import {Context} from "../../App";
+import { Context } from "../../App";
 
 const Skills = () => {
   let langActive = useContext(Context);
@@ -66,7 +64,7 @@ const Skills = () => {
             duration={1.4}
             animateOnce={true}
           >
-            <Skill title="Nodejs" img={`${sprite}#nodejs`} />
+            <Skill title="React Query" img={`${sprite}#query`} />
           </ScrollAnimation>
 
           <ScrollAnimation
@@ -75,6 +73,14 @@ const Skills = () => {
             animateOnce={true}
           >
             <Skill title="JavaScript" img={`${sprite}#js`} />
+          </ScrollAnimation>
+
+          <ScrollAnimation
+            animateIn={c.animate__fadeInUp}
+            duration={1.4}
+            animateOnce={true}
+          >
+            <Skill title="Nest js" img={`${sprite}#nest`} />
           </ScrollAnimation>
 
           <ScrollAnimation
@@ -129,13 +135,6 @@ const Skills = () => {
             <Skill title="SCSS" img={`${sprite}#sass`} />
           </ScrollAnimation>
 
-          <ScrollAnimation
-            animateIn={c.animate__fadeInUp}
-            duration={1.4}
-            animateOnce={true}
-          >
-            <Skill title="Styled comp-ts" img={styled} isImg />
-          </ScrollAnimation>
           <ScrollAnimation
             className={styles.click}
             animateIn={c.animate__fadeInUp}

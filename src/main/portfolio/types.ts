@@ -13,4 +13,6 @@ export type TStackType =
   | "express"
   | "mongodb"
   | "postgresql"
+  | "query"
+  | "nest"
   | "jest";

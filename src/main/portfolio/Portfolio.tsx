@@ -1,17 +1,17 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import Project from "./project/Project";
 import Masonry from "react-masonry-css";
 import styles from "./Portfolio.module.scss";
 
 import desire from "../../common/images/projects/desire.jpeg";
-import todo from "../../common/images/projects/todolist.jpg";
+import planner from "../../common/images/projects/planner3.jpg";
 import quiz from "../../common/images/projects/quiz.jpg";
 import c from "../skills/animate.module.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import secretSantaImg from "../../common/images/projects/secretSanta.png";
 import articleAppImg from "../../common/images/projects/articleApp.png";
 import internetShopImg from "../../common/images/projects/internetShop.webp";
-import {Context} from "../../App";
+import { Context } from "../../App";
 import sprite from "../../common/images/footer/footerSprite.svg";
 
 const Portfolio = () => {
@@ -52,6 +52,11 @@ const Portfolio = () => {
     langActive === "rus"
       ? "Классическое приложение-органайзер"
       : "React organizer app";
+
+  const plannerDescr =
+    langActive === "rus"
+      ? "Фулстек аналог Trello c авторизацией через access и refresh token из cookie, drag'n'drop задач, таймером для отслеживания времени выполнения"
+      : "Daily planner app with advance auth process, drag'n'drop functionality and timer for checking operation time";
   const githubLinkDescr =
     langActive === "rus"
       ? "Больше проектов в моем репозитории "
@@ -80,6 +85,22 @@ const Portfolio = () => {
               height="240px"
               link={"https://ptichkinproject.ru"}
               gitHubLink={"https://github.com/MikhailPtichkin88/secretSanta"}
+            />
+          </ScrollAnimation>
+
+          <ScrollAnimation
+            animateIn={c.animate__fadeInUp}
+            animateOnce={true}
+            duration={1.2}
+          >
+            <Project
+              img={planner}
+              title="Daily planner"
+              descr={plannerDescr}
+              stack={["next", "query", "nest", "postgresql"]}
+              height="280px"
+              link={"https://ptichkinproject.ru/planner_app/"}
+              gitHubLink={"https://github.com/MikhailPtichkin88/planner-frontend"}
             />
           </ScrollAnimation>
 
@@ -148,21 +169,6 @@ const Portfolio = () => {
             />
           </ScrollAnimation>
 
-          <ScrollAnimation
-            animateIn={c.animate__fadeInUp}
-            animateOnce={true}
-            duration={1.2}
-          >
-            <Project
-              img={todo}
-              title="ToDo list"
-              descr={todoDescr}
-              stack={["react", "redux", "ts"]}
-              height="280px"
-              link={"https://mikhailptichkin88.github.io/todolist/"}
-              gitHubLink={"https://github.com/MikhailPtichkin88/TodoList"}
-            />
-          </ScrollAnimation>
         </Masonry>
         <div className={styles.githubWrapper}>
           <a
