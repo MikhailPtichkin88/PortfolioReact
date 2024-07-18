@@ -10,7 +10,7 @@ import c from "../skills/animate.module.scss";
 import ScrollAnimation from "react-animate-on-scroll";
 import secretSantaImg from "../../common/images/projects/secretSanta.png";
 import articleAppImg from "../../common/images/projects/articleApp.png";
-import internetShopImg from "../../common/images/projects/internetShop.webp";
+import globe from "../../common/images/projects/globe.png";
 import { Context } from "../../App";
 import sprite from "../../common/images/footer/footerSprite.svg";
 
@@ -47,6 +47,11 @@ const Portfolio = () => {
     langActive === "rus"
       ? "Командный проект для изучения английского языка"
       : "Team project app for learning english language";
+
+      const routesApp =
+      langActive === "rus"
+        ? "Тестовое задание. Приложение для построения маршрутов на интерактивной карте"
+        : "An application for building routes on an interactive map";
 
   const todoDescr =
     langActive === "rus"
@@ -128,13 +133,13 @@ const Portfolio = () => {
             duration={1.8}
           >
             <Project
-              img={quiz}
-              title="Cards quiz"
-              descr={quizDescr}
-              stack={["react", "redux", "ts"]}
+              img={globe}
+              title="Routes app"
+              descr={routesApp}
+              stack={["react", "ts", "query", "webpack"]}
               height="240px"
-              link={"https://mikhailptichkin88.github.io/cards"}
-              gitHubLink={"https://github.com/MikhailPtichkin88/cards"}
+              link={"https://ptichkinproject.ru/route_app/"}
+              gitHubLink={"https://github.com/MikhailPtichkin88/route_editor"}
             />
           </ScrollAnimation>
           <ScrollAnimation animateIn={c.animate__fadeInUp} animateOnce={true}>
@@ -159,13 +164,13 @@ const Portfolio = () => {
             duration={1.8}
           >
             <Project
-              img={internetShopImg}
-              title="Electronics"
-              descr={electronicsDescr}
-              stack={["nodejs", "postgresql", "express"]}
+              img={quiz}
+              title="Cards quiz"
+              descr={quizDescr}
+              stack={["react", "redux", "ts"]}
               height="240px"
-              link={"https://server-bay-eight.vercel.app/"}
-              gitHubLink={"https://github.com/MikhailPtichkin88/server"}
+              link={"https://mikhailptichkin88.github.io/cards"}
+              gitHubLink={"https://github.com/MikhailPtichkin88/cards"}
             />
           </ScrollAnimation>
 

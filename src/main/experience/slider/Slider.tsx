@@ -3,6 +3,7 @@ import {Carousel} from "react-responsive-carousel";
 import "./Slider.scss";
 import styles from "./Slider.module.scss";
 
+import beyond from "../../../common/images/experience/beyond.png";
 import liga from "../../../common/images/experience/logo_org.jpeg";
 import univer from "../../../common/images/experience/Plekhanov.jpg";
 import lotte from "../../../common/images/experience/lotte.jpg";
@@ -25,17 +26,28 @@ const SliderComponent = () => {
   let langActive = useContext(Context);
   return (
     <Carousel {...settings}>
-      <div className={styles.slide}>
+
+<div className={styles.slide}>
         <div
-          className={styles.img + " " + styles.liga}
-          style={{backgroundImage: `url(${liga})`}}
-        ></div>
+          className={styles.img + " " + styles.lotte}
+          style={{backgroundImage: `url(${univer})`}}
+        >
+        </div>
         <div className={styles.text}>
           {langActive === "rus"
-            ? `С 2022 года и по настоящее время работаю в Лиге Цифровой Экономики в должности  веб разработчика.`
-            : `From 2022 to the present, I have been working in the Digital Economy League as a frontend developer.`}
+            ? `Образование: Российский Экономический Университет им. Г.В. Плеханова,
+                    Инженерно-экономический факультет.`
+            : `I've graduated from Russian Economic University named after G.V. Plekhanov with a degree in economics and management in hospitality industry and restaurant business.`}
+          <p>
+            {langActive === "rus"
+              ? `Специальность: Экономика и управление в индустрии
+                        гостеприимства,
+                        туризма и ресторанного бизнеса.`
+              : ""}
+          </p>
         </div>
       </div>
+
 
       <div className={styles.slide}>
         <div
@@ -46,8 +58,8 @@ const SliderComponent = () => {
         ></div>
         <div className={styles.text + " " + styles.textCourses}>
           {langActive === "rus"
-            ? "C ноября 2021 начал обучение веб-разработке, прошел следующие курсы:"
-            : "Since November 2021 I've completed several courses:"}
+            ? "Прошел следующие курсы:"
+            : "I've completed several courses:"}
           <ul className={styles.list} style={{listStyle: `url(${icon})`}}>
             <li className={styles.item}>
               {langActive === "rus"
@@ -72,39 +84,34 @@ const SliderComponent = () => {
           </ul>
         </div>
       </div>
-      <div className={styles.slide}>
-        <div
-          className={styles.img + " " + styles.lotte}
-          style={{backgroundImage: `url(${lotte})`}}
-        ></div>
-        <div className={styles.text}>
-          {langActive === "rus"
-            ? ` С 2013 по 2022 год работал в отеле Lotte Hotel Moscow. Хотя моя работа не была связана с IT, те
-                    навыки коммуникации, а так же хороший уровень английского языка, которые я наработал за эти годы,
-                    обязательно пригодятся и в сфере frontend'а.`
-            : ` Since 2013 till 2022 I have been working in Lotte Hotel Moscow. Though my job was far enough from web development, I strongly believe that those soft skills and english language practice that i've developed for all those years will be a good help in frontend.`}
-        </div>
-      </div>
-      <div className={styles.slide}>
-        <div
-          className={styles.img + " " + styles.lotte}
-          style={{backgroundImage: `url(${univer})`}}
-        ></div>
-        <div className={styles.text}>
-          {langActive === "rus"
-            ? `В 2012 окончил Российский Экономический Университет им. Г.В. Плеханова,
-                    Инженерно-экономический факультет.`
-            : `In 2012 I've graduated from Russian Economic University named after G.V. Plekhanov with a degree in economics and management in hospitality industry and restaurant business.`}
 
-          <p>
-            {langActive === "rus"
-              ? `Специальность: Экономика и управление в индустрии
-                        гостеприимства,
-                        туризма и ресторанного бизнеса.`
-              : ""}
-          </p>
+      <div className={styles.slide}>
+        <div
+          className={styles.img + " " + styles.beyond}
+          style={{backgroundImage: `url(${beyond})`}}
+        >
+        </div>
+        <div className={styles.text}>
+          {langActive === "rus"
+            ? `В 2021 году работал в веб-студии Beyond, занимался кросс-браузерной, адаптивной версткой лэндингов, интернет-магазинов, написание скриптов для динамических элементов (слайдеры, пагинация, фильтрация).`
+            : `In 2021, I worked at the web studio Beyond, where I was responsible for cross-browser, responsive layout of landing pages, e-commerce websites, and writing scripts for dynamic elements (sliders, pagination, filtering)`}
+
         </div>
       </div>
+
+
+      <div className={styles.slide}>
+        <div
+          className={styles.img + " " + styles.liga}
+          style={{backgroundImage: `url(${liga})`}}
+        ></div>
+        <div className={styles.text}>
+          {langActive === "rus"
+            ? `С 2022 года и по настоящее время работаю в Лиге Цифровой Экономики в должности  веб разработчика. Работаю над внутренней crm системой для полугодовой оценки сотрудников, веду разработку независимых модулей.`
+            : `From 2022 to the present, I have been working in the Digital Economy League as a frontend developer.`}
+        </div>
+      </div>
+
     </Carousel>
   );
 };
